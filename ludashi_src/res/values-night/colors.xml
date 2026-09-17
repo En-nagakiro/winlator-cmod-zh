@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ingame_sidebar_background">#ff0b0c0f</color>
+    <color name="ingame_sidebar_divider">#24ffffff</color>
+    <color name="ingame_sidebar_icon">#ffa6a6ae</color>
+    <color name="ingame_sidebar_icon_selected">#fff4f4f6</color>
+    <color name="ingame_sidebar_power">#ffff6673</color>
+    <color name="ingame_sidebar_selected_background">#ff2a272d</color>
+    <color name="landscape_rail_background">#ff0d0e11</color>
+    <color name="landscape_rail_divider">#20ffffff</color>
+    <color name="landscape_rail_icon">#ffa0a0a8</color>
+    <color name="landscape_rail_icon_selected">#fff5f5f7</color>
+    <color name="landscape_rail_selected">#ff2b2b31</color>
+</resources>

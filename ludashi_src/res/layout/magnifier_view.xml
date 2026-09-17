@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:background="@drawable/content_dialog_background" android:paddingTop="16.0dip" android:paddingBottom="16.0dip" android:layout_width="68.0dip" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageButton android:id="@id/BTMove" android:layout_marginBottom="4.0dip" android:src="@drawable/icon_move" style="@style/ListMenuButton" />
+    <ImageButton android:id="@id/BTHide" android:src="@drawable/icon_hide" style="@style/ListMenuButton" />
+    <View style="@style/HorizontalLine" />
+    <ImageButton android:id="@id/BTZoomPlus" android:layout_marginBottom="4.0dip" android:src="@drawable/icon_zoom_plus" style="@style/ListMenuButton" />
+    <TextView android:id="@id/TextView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="4.0dip" />
+    <ImageButton android:id="@id/BTZoomMinus" android:src="@drawable/icon_zoom_minus" style="@style/ListMenuButton" />
+</LinearLayout>

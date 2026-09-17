@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:background="@drawable/ui_glass_background" android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:paddingTop="8.0dip" android:paddingBottom="24.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="14.0dip" android:paddingEnd="14.0dip">
+        <LinearLayout style="@style/ModernSettingsCard">
+            <TextView android:text="@string/profile" style="@style/ModernSettingsTitle" />
+            <Spinner android:id="@id/SProfile" android:layout_width="fill_parent" android:layout_height="46.0dip" android:spinnerMode="dialog" style="@style/ComboBox" />
+            <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="44.0dip" android:layout_marginTop="8.0dip">
+                <ImageButton android:id="@id/BTAddProfile" android:src="@drawable/ui_ic_add" android:contentDescription="@string/add" style="@style/ListMenuButton" />
+                <ImageButton android:id="@id/BTEditProfile" android:src="@drawable/ui_ic_edit" android:contentDescription="@string/edit" style="@style/ListMenuButton" />
+                <ImageButton android:id="@id/BTDuplicateProfile" android:src="@drawable/ui_ic_copy" android:contentDescription="@string/duplicate" style="@style/ListMenuButton" />
+                <ImageButton android:id="@id/BTRemoveProfile" android:src="@drawable/ui_ic_delete" android:contentDescription="@string/remove" style="@style/ListMenuButton" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout style="@style/ModernSettingsCard">
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:layout_width="0.0dip" android:text="@string/overlay_opacity" android:layout_weight="1.0" style="@style/ModernSettingsTitle" />
+                <TextView android:textSize="12.0sp" android:textColor="@color/ui_text_muted" android:id="@id/TVUiOpacity" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            </LinearLayout>
+            <SeekBar android:id="@id/SBOverlayOpacity" android:layout_width="fill_parent" android:layout_height="40.0dip" android:max="100" android:progressTint="@color/ui_text_primary" android:thumbTint="@color/ui_text_primary" android:min="10" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="48.0dip" android:layout_marginTop="4.0dip">
+            <Button android:id="@id/BTImportProfile" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/import_profile" android:layout_weight="1.0" android:layout_marginEnd="5.0dip" style="@style/ButtonNeutral" />
+            <Button android:id="@id/BTExportProfile" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/export_profile" android:layout_weight="1.0" android:layout_marginStart="5.0dip" style="@style/ButtonNeutral" />
+        </LinearLayout>
+        <Button android:id="@id/BTControlsEditor" android:layout_width="fill_parent" android:layout_height="52.0dip" android:layout_marginTop="10.0dip" android:text="@string/controls_editor" style="@style/ButtonPositive" />
+        <TextView android:textSize="11.0sp" android:textStyle="bold" android:textColor="@color/ui_text_muted" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="24.0dip" android:layout_marginBottom="8.0dip" android:text="@string/external_controllers" android:textAllCaps="true" android:layout_marginStart="4.0dip" />
+        <LinearLayout android:orientation="vertical" android:id="@id/LLExternalControllers" android:background="@drawable/ui_settings_card" android:padding="12.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <TextView android:textSize="13.0sp" android:textColor="@color/ui_text_muted" android:gravity="center" android:id="@id/TVEmptyText" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="96.0dip" android:text="@string/no_items_to_display" />
+    </LinearLayout>
+</ScrollView>

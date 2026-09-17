@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/ui_nav_home" android:id="@id/bottom_nav_library" android:title="@string/library" />
+    <item android:icon="@drawable/ui_nav_grid" android:id="@id/bottom_nav_containers" android:visible="false" android:title="@string/containers" />
+    <item android:icon="@drawable/ui_nav_controls" android:id="@id/bottom_nav_controls" android:title="@string/input_controls" />
+    <item android:icon="@drawable/ui_nav_settings" android:id="@id/bottom_nav_settings" android:title="@string/settings" />
+</menu>

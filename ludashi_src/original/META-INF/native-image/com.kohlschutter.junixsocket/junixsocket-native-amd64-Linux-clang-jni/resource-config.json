@@ -1,0 +1,9 @@
+{
+  "resources":{
+  "includes":[
+    {
+      "pattern":"^lib/amd64-Linux-clang/jni/.*"
+    }
+  ]},
+  "bundles":[]
+}

@@ -1,0 +1,9 @@
+{
+  "resources":{
+  "includes":[
+    {
+      "pattern":"^lib/x86_64-MacOSX-clang/jni/.*"
+    }
+  ]},
+  "bundles":[]
+}

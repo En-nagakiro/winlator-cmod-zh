@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/LLStorageCard" android:background="@drawable/ui_panel_bg" android:paddingTop="9.0dip" android:paddingBottom="10.0dip" android:layout_width="fill_parent" android:layout_height="64.0dip" android:layout_marginBottom="14.0dip" android:paddingStart="12.0dip" android:paddingEnd="12.0dip" android:layout_marginStart="14.0dip" android:layout_marginEnd="14.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="12.0sp" android:textColor="#ffffffff" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/storage" android:layout_weight="1.0" />
+        <TextView android:textSize="12.0sp" android:textColor="#ffd8d8d8" android:id="@id/TVStorageUsage" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+    <ProgressBar android:id="@id/PBStorageUsage" android:layout_width="fill_parent" android:layout_height="6.0dip" android:layout_marginTop="10.0dip" android:max="100" android:progress="0" android:progressDrawable="@drawable/ui_storage_progress" style="?android:progressBarStyleHorizontal" />
+</LinearLayout>

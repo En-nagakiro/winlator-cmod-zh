@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<accessibility-service android:settingsActivity=".LoriePreferences" android:accessibilityEventTypes="" android:packageNames="@null" android:accessibilityFlags="" android:canRetrieveWindowContent="false" android:canRequestFilterKeyEvents="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

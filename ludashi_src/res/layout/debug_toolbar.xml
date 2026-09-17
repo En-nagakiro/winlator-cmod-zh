@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageButton android:id="@id/BTClear" android:layout_marginRight="8.0dip" android:src="@drawable/icon_remove" style="@style/ListMenuButton" />
+    <ImageButton android:id="@id/BTPause" android:layout_marginRight="8.0dip" android:src="@drawable/icon_pause" style="@style/ListMenuButton" />
+</LinearLayout>

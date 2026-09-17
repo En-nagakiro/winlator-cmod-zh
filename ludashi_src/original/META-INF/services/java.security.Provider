@@ -1,0 +1,3 @@
+org.bouncycastle.jce.provider.BouncyCastleProvider
+org.bouncycastle.pqc.jcajce.provider.BouncyCastlePQCProvider
+org.openjsse.net.ssl.OpenJSSE

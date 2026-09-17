@@ -1,0 +1,9 @@
+{
+  "resources":{
+  "includes":[
+    {
+      "pattern":"^lib/s390x-Linux-clang/jni/.*"
+    }
+  ]},
+  "bundles":[]
+}

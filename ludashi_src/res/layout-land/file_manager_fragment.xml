@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.winlator.cmod.ui.theme.ThemedFileManagerLayout android:id="@id/FileManagerRoot" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="horizontal" android:id="@id/FileManagerContent" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:id="@id/FileManagerHeader" android:paddingTop="8.0dip" android:paddingBottom="12.0dip" android:layout_width="270.0dip" android:layout_height="fill_parent" android:paddingStart="14.0dip" android:paddingEnd="14.0dip">
+            <ImageButton android:id="@id/BTUpDir" android:background="?selectableItemBackgroundBorderless" android:padding="11.0dip" android:layout_width="46.0dip" android:layout_height="46.0dip" android:src="@drawable/icon_back" android:contentDescription="@string/up_directory" app:tint="?android:textColorPrimary" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/LLDriveSelect" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="66.0dip" android:layout_marginTop="6.0dip" android:paddingStart="15.0dip" android:paddingEnd="13.0dip">
+                <ImageView android:id="@id/IVDriveIcon" android:layout_width="30.0dip" android:layout_height="30.0dip" android:src="@drawable/ic_internal_storage" app:tint="?android:textColorPrimary" />
+                <TextView android:textSize="17.0sp" android:textStyle="bold" android:id="@id/TVDriveName" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="Drive D:" android:layout_weight="1.0" android:layout_marginStart="12.0dip" />
+                <ImageView android:id="@id/IVDriveArrow" android:layout_width="18.0dip" android:layout_height="18.0dip" android:src="@android:drawable/arrow_down_float" app:tint="?android:textColorSecondary" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/DriveOptionsPanel" android:padding="5.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="7.0dip" />
+            <LinearLayout android:gravity="center_vertical" android:id="@id/FileManagerPathCard" android:padding="13.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="9.0dip" android:minHeight="50.0dip">
+                <TextView android:textSize="11.0sp" android:ellipsize="middle" android:id="@id/TVCurrentPath" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="3" />
+            </LinearLayout>
+            <Space android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+            <LinearLayout android:orientation="vertical" android:id="@id/FileManagerStorageCard" android:paddingTop="11.0dip" android:paddingBottom="12.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="13.0dip" android:paddingEnd="13.0dip">
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <TextView android:textSize="12.0sp" android:id="@id/TVDriveStorageLabel" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/storage" android:layout_weight="1.0" />
+                    <TextView android:textSize="12.0sp" android:id="@id/TVDriveStorage" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0 B / 0 B" />
+                </LinearLayout>
+                <ProgressBar android:id="@id/PBDriveStorage" android:layout_width="fill_parent" android:layout_height="4.0dip" android:layout_marginTop="9.0dip" android:max="100" android:progress="0" style="?android:progressBarStyleHorizontal" />
+            </LinearLayout>
+        </LinearLayout>
+        <View android:id="@id/FileManagerDivider" android:layout_width="1.0dip" android:layout_height="fill_parent" />
+        <com.winlator.cmod.ui.theme.LandscapeFileRecyclerView android:id="@id/RecyclerViewFiles" android:paddingTop="3.0dip" android:paddingBottom="12.0dip" android:clipToPadding="false" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" android:paddingStart="8.0dip" android:paddingEnd="8.0dip" />
+    </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton android:layout_gravity="end|bottom|center" android:id="@id/fabPaste" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="18.0dip" android:src="@android:drawable/ic_menu_save" android:contentDescription="@string/paste" android:layout_marginEnd="18.0dip" />
+</com.winlator.cmod.ui.theme.ThemedFileManagerLayout>

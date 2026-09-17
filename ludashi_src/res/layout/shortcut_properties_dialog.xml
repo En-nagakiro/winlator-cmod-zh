@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="16.0sp" android:id="@id/play_count" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/number_of_times_played" />
+    <TextView android:textSize="16.0sp" android:id="@id/playtime" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/playtime" />
+    <Button android:textSize="16.0sp" android:id="@id/reset_properties" android:paddingBottom="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/reset_properties" />
+</LinearLayout>

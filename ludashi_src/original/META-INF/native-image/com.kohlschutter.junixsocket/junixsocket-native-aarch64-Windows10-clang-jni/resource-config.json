@@ -1,0 +1,9 @@
+{
+  "resources":{
+  "includes":[
+    {
+      "pattern":"^lib/aarch64-Windows10-clang/jni/.*"
+    }
+  ]},
+  "bundles":[]
+}

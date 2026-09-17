@@ -1,0 +1,9 @@
+{
+  "resources":{
+  "includes":[
+    {
+      "pattern":"^lib/riscv64-Linux-clang/jni/.*"
+    }
+  ]},
+  "bundles":[]
+}

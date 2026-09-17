@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="320.0dip" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <TextView android:textSize="20.0sp" android:textStyle="bold" android:textColor="@color/colorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Winlator CMOD" />
+                <TextView android:textSize="14.0sp" android:textColor="@color/colorAccent" android:id="@id/TVWebpage" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <TextView android:textSize="14.0sp" android:textColor="#ff9e9e9e" android:id="@id/TVAppVersion" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            </LinearLayout>
+            <ImageView android:layout_width="70.0dip" android:layout_height="70.0dip" android:src="@mipmap/ic_launcher" />
+        </LinearLayout>
+        <View style="@style/HorizontalLine" />
+        <TextView android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/credits_and_third_party_apps" />
+        <TextView android:id="@id/TVCreditsAndThirdPartyApps" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/glibc_exp_edition" />
+        <TextView android:id="@id/TVGlibcExpVersionFork" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

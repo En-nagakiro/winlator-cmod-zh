@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout android:id="@id/DrawerLayout" android:fitsSystemWindows="false" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:background="@drawable/ui_glass_background" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <androidx.appcompat.widget.Toolbar android:id="@id/Toolbar" android:background="@drawable/ui_glass_background" android:layout_width="fill_parent" android:layout_height="58.0dip" android:paddingStart="6.0dip" android:paddingEnd="12.0dip" app:title="@string/app_name" app:titleTextAppearance="@style/GlassToolbarTitle" app:titleTextColor="@color/ui_text_primary" />
+        <FrameLayout android:id="@id/FLFragmentContainer" android:background="@drawable/ui_glass_background" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+        <com.winlator.cmod.ui.WinZBottomNavigationView android:id="@id/BottomNavigation" android:background="@drawable/ui_bottom_nav_shell" android:layout_width="fill_parent" android:layout_height="64.0dip" android:layout_marginBottom="12.0dip" android:layout_marginStart="12.0dip" android:layout_marginEnd="12.0dip" app:itemBackground="@drawable/ui_bottom_nav_item_background" app:itemIconSize="23.0dip" app:itemIconTint="@color/ui_bottom_navigation_item" app:itemRippleColor="#22ffffff" app:itemTextColor="@color/ui_bottom_navigation_item" app:labelVisibilityMode="labeled" app:menu="@menu/enhanced_bottom_navigation" />
+    </LinearLayout>
+    <LinearLayout android:layout_gravity="start" android:orientation="vertical" android:background="@drawable/ui_glass_background" android:visibility="gone" android:layout_width="310.0dip" android:layout_height="fill_parent">
+        <com.google.android.material.navigation.NavigationView android:id="@id/NavigationView" android:background="@drawable/ui_glass_background" android:fitsSystemWindows="false" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" app:itemBackground="@drawable/ui_nav_item_bg" app:itemHorizontalPadding="20.0dip" app:itemIconPadding="18.0dip" app:itemIconTint="@color/ui_accent" app:itemTextColor="@color/ui_text_primary" app:menu="@menu/main_menu" />
+        <include layout="@layout/main_menu_storage_footer" />
+    </LinearLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:gravity="center" android:height="72.0dip" android:width="72.0dip" android:drawable="@drawable/winlator_mark_exact" />
+</layer-list>

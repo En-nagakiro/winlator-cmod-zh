@@ -1,0 +1,9 @@
+{
+  "resources":{
+  "includes":[
+    {
+      "pattern":"^lib/amd64-OpenBSD-clang/jni/.*"
+    }
+  ]},
+  "bundles":[]
+}

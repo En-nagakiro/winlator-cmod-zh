@@ -1,0 +1,9 @@
+{
+  "resources":{
+  "includes":[
+    {
+      "pattern":"^lib/ppc64le-Linux-clang/jni/.*"
+    }
+  ]},
+  "bundles":[]
+}

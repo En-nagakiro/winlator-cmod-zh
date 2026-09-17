@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:gravity="center" android:background="#b3000000" android:focusable="false" android:clickable="false" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="right" android:layout_gravity="center" android:orientation="vertical" android:background="@drawable/loading_panel_amoled" android:paddingLeft="20.0dip" android:paddingTop="14.0dip" android:paddingRight="20.0dip" android:paddingBottom="14.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="16.0dip">
+                <com.google.android.material.progressindicator.CircularProgressIndicator android:layout_gravity="center" android:id="@id/CircularProgressIndicator" android:layout_width="wrap_content" android:layout_height="wrap_content" app:indicatorColor="@color/colorPrimary" app:indicatorSize="68.0dip" app:trackColor="#ff263241" app:trackThickness="8.0dip" />
+                <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/colorPrimary" android:layout_gravity="center" android:id="@id/TVProgress" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            </FrameLayout>
+            <TextView android:textSize="16.0sp" android:textColor="#ffeaf1ff" android:id="@id/TextView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/downloading_file" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/LLBottomBar" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View style="@style/HorizontalLine" />
+            <Button android:id="@id/BTCancel" android:text="@string/cancel" style="@style/ButtonNeutral" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

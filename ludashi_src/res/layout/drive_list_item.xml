@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Spinner android:id="@id/Spinner" android:layout_width="100.0dip" android:layout_marginRight="4.0dip" style="@style/ComboBox" />
+    <EditText android:id="@id/EditText" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" style="@style/EditText" />
+    <ImageButton android:id="@id/BTSearch" android:src="@drawable/icon_open" style="@style/ListMenuButton" />
+    <ImageButton android:id="@id/BTRemove" android:src="@drawable/icon_remove" style="@style/ListMenuButton" />
+</LinearLayout>

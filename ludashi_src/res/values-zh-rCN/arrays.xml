@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="startup_selection_entries">
+        <item>正常 (加载所有服务)</item>
+        <item>精简 (仅加载必要服务)</item>
+        <item>激进 (启动时停止服务)</item>
+    </string-array>
+    <string-array name="desktop_theme_entries">
+        <item>浅色</item>
+        <item>深色</item>
+    </string-array>
+    <string-array name="wincomponent_entries">
+        <item>内置 (Wine)</item>
+        <item>原生 (Windows)</item>
+    </string-array>
+    <string-array name="desktop_background_type_entries">
+        <item>壁纸图片</item>
+        <item>纯色背景</item>
+    </string-array>
+    <string-array name="touchscreenInputModesEntries">
+        <item>触控板</item>
+        <item>模拟触摸屏</item>
+        <item>直接触摸</item>
+    </string-array>
+    <string-array name="transformCapturedPointerEntries">
+        <item>否</item>
+        <item>顺时针</item>
+        <item>逆时针</item>
+        <item>上下颠倒</item>
+        <item>自动 (适用于触控板)</item>
+    </string-array>
+    <string-array name="binding_type_entries">
+        <item>键盘</item>
+        <item>鼠标</item>
+        <item>手柄</item>
+    </string-array>
+    <string-array name="device_memory_entries">
+        <item>0 (默认)</item>
+        <item>512 MB</item>
+        <item>1024 MB</item>
+        <item>2048 MB</item>
+        <item>4096 MB</item>
+        <item>8192 MB</item>
+        <item>12288 MB</item>
+        <item>16384 MB</item>
+    </string-array>
+    <string-array name="dxvk_framerate_entries">
+        <item>0 (默认)</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+        <item>60</item>
+        <item>70</item>
+        <item>80</item>
+        <item>90</item>
+        <item>100</item>
+        <item>110</item>
+        <item>120</item>
+    </string-array>
+    <string-array name="dxvk_max_device_memory_entries">
+        <item>0 (默认)</item>
+        <item>512 MB</item>
+        <item>1024 MB</item>
+        <item>2048 MB</item>
+        <item>4096 MB</item>
+    </string-array>
+</resources>

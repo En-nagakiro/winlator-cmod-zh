@@ -1,0 +1,9 @@
+{
+  "resources":{
+  "includes":[
+    {
+      "pattern":"^lib/amd64-SunOS-clang/jni/.*"
+    }
+  ]},
+  "bundles":[]
+}

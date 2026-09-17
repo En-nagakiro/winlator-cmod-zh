@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="330.0dip" android:layout_height="wrap_content" android:layout_marginBottom="8.0dip">
+            <Spinner android:id="@id/SProfile" android:layout_width="0.0dip" android:layout_weight="1.0" android:spinnerMode="dialog" style="@style/ComboBox" />
+            <ImageView android:id="@id/BTSettings" android:layout_width="28.0dip" android:layout_height="28.0dip" android:src="@drawable/icon_settings" android:layout_marginStart="8.0dip" app:tint="@color/colorPrimary" />
+        </LinearLayout>
+        <CheckBox android:id="@id/CBShowTouchscreenControls" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" android:text="@string/show_touchscreen_controls" />
+        <CheckBox android:id="@id/CBEnableTimeout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="false" android:text="@string/enable_touchscreen_timeout" />
+        <CheckBox android:id="@id/CBEnableHaptics" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="false" android:text="@string/enable_touchscreen_haptics" />
+    </LinearLayout>
+</HorizontalScrollView>

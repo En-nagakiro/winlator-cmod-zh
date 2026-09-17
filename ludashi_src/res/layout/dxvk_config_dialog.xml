@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="wrap_content" android:layout_height="240.0dip" android:fillViewport="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="280.0dip" android:layout_height="wrap_content">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/dxvk_version" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <Spinner android:entries="@array/dxvk_version_entries" android:id="@id/SDXVKVersion" android:background="@drawable/combo_box_no_arrow_dark" android:layout_width="0.0dip" android:layout_weight="1.0" android:spinnerMode="dropdown" android:layout_marginEnd="14.0dip" style="@style/ComboBoxCompact" />
+            <ImageButton android:id="@id/BTDXVKInstall" android:src="@drawable/icon_popup_menu_download" style="@style/FieldActionButton" />
+            <ImageButton android:id="@id/BTDXVKRemove" android:src="@drawable/icon_popup_menu_remove" style="@style/FieldActionButton" />
+        </LinearLayout>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/vkd3d_version" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <Spinner android:entries="@array/vkd3d_version_entries" android:id="@id/SVKD3DVersion" android:background="@drawable/combo_box_no_arrow_dark" android:layout_width="0.0dip" android:layout_weight="1.0" android:spinnerMode="dropdown" android:layout_marginEnd="14.0dip" style="@style/ComboBoxCompact" />
+            <ImageButton android:id="@id/BTVkd3dInstall" android:src="@drawable/icon_popup_menu_download" style="@style/FieldActionButton" />
+            <ImageButton android:id="@id/BTVkd3dRemove" android:src="@drawable/icon_popup_menu_remove" style="@style/FieldActionButton" />
+        </LinearLayout>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/vkd3d_feature_level" />
+        <Spinner android:id="@id/SVKD3DFeatureLevel" android:layout_width="fill_parent" android:spinnerMode="dropdown" style="@style/ComboBoxCompact" />
+        <LinearLayout android:orientation="horizontal" android:id="@id/LLAsync" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip">
+            <TextView android:layout_gravity="center" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/enabled_async" android:layout_weight="1.0" />
+            <ToggleButton android:id="@id/SWAsync" android:background="@drawable/toggle_button_selector" android:layout_width="64.0dip" android:layout_height="32.0dip" android:textOn="" android:textOff="" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:id="@id/LLAsyncCache" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:layout_marginBottom="8.0dip">
+            <TextView android:layout_gravity="center" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/enabled_async_cache" android:layout_weight="1.0" />
+            <ToggleButton android:id="@id/SWAsyncCache" android:background="@drawable/toggle_button_selector" android:layout_width="64.0dip" android:layout_height="32.0dip" android:textOn="" android:textOff="" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:id="@id/LLMaxFrameLatency" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="8.0dip">
+            <TextView android:layout_gravity="center" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/max_frame_latency" android:layout_weight="1.0" />
+            <ToggleButton android:id="@id/SWMaxFrameLatency" android:background="@drawable/toggle_button_selector" android:layout_width="64.0dip" android:layout_height="32.0dip" android:textOn="" android:textOff="" />
+        </LinearLayout>
+        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/ddraw_wrapper" />
+        <Spinner android:entries="@array/ddrawrapper_entries" android:id="@id/SDDRAWrapper" android:layout_width="fill_parent" android:spinnerMode="dropdown" style="@style/ComboBoxCompact" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/frame_rate" />
+        <Spinner android:entries="@array/dxvk_framerate_entries" android:id="@id/SFramerate" android:layout_width="fill_parent" android:spinnerMode="dropdown" style="@style/ComboBoxCompact" />
+    </LinearLayout>
+</ScrollView>

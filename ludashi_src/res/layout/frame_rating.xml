@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="#33000000" android:padding="2.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginTop="2.0dip">
+        <TextView android:textSize="12.0dip" android:textStyle="bold" android:textColor="#ff0277bd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dip" android:text="FPS:" android:maxLines="1" android:includeFontPadding="false" android:layout_weight="1.0" />
+        <TextView android:textSize="12.0dip" android:textStyle="bold" android:textColor="#ffffffff" android:id="@id/TVFPS" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:maxLines="1" android:includeFontPadding="false" android:layout_weight="1.0" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="#33000000" android:padding="2.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginTop="2.0dip">
+        <TextView android:textSize="12.0dip" android:textStyle="bold" android:textColor="#fffc0303" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dip" android:text="Renderer:" android:maxLines="1" android:includeFontPadding="false" android:layout_weight="1.0" />
+        <TextView android:textSize="12.0dip" android:textStyle="bold" android:textColor="#ffffffff" android:id="@id/TVRenderer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:includeFontPadding="false" android:layout_weight="1.0" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="#33000000" android:padding="2.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginTop="2.0dip">
+        <TextView android:textSize="12.0dip" android:textStyle="bold" android:textColor="#ff5c23a6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dip" android:text="GPU:" android:maxLines="1" android:includeFontPadding="false" android:layout_weight="1.0" />
+        <TextView android:textSize="12.0dip" android:textStyle="bold" android:textColor="#ffffffff" android:id="@id/TVGPU" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:includeFontPadding="false" android:layout_weight="1.0" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="#33000000" android:padding="2.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginTop="2.0dip">
+        <TextView android:textSize="12.0dip" android:textStyle="bold" android:textColor="#ff23a6a4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dip" android:text="RAM:" android:maxLines="1" android:includeFontPadding="false" android:layout_weight="1.0" />
+        <TextView android:textSize="12.0dip" android:textStyle="bold" android:textColor="#ffffffff" android:id="@id/TVRAM" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:includeFontPadding="false" android:layout_weight="1.0" />
+    </LinearLayout>
+</LinearLayout>

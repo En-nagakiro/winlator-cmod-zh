@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:gravity="center" android:id="@id/PreloaderRoot" android:background="#b3000000" android:focusable="false" android:clickable="false" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/LaunchArtwork" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" android:contentDescription="@null" />
+    <View android:id="@id/LaunchScrim" android:background="@drawable/loading_art_scrim" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <LinearLayout android:layout_gravity="bottom" android:orientation="vertical" android:id="@id/LaunchInfo" android:paddingBottom="22.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="28.0dip" android:paddingEnd="28.0dip">
+        <TextView android:textSize="28.0sp" android:textStyle="bold" android:ellipsize="end" android:id="@id/LaunchTitle" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="1" />
+        <TextView android:textSize="14.0sp" android:id="@id/LaunchStatus" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="7.0dip" />
+    </LinearLayout>
+    <com.google.android.material.progressindicator.LinearProgressIndicator android:layout_gravity="bottom" android:id="@id/LaunchProgress" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="4.0dip" android:indeterminate="true" app:trackThickness="4.0dip" />
+    <LinearLayout android:gravity="center_vertical" android:layout_gravity="center" android:orientation="horizontal" android:id="@id/LoadingPanel" android:background="@drawable/loading_panel_amoled" android:paddingLeft="22.0dip" android:paddingTop="16.0dip" android:paddingRight="22.0dip" android:paddingBottom="16.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <com.google.android.material.progressindicator.CircularProgressIndicator android:layout_width="44.0dip" android:layout_height="44.0dip" android:indeterminate="true" android:layout_marginEnd="16.0dip" app:indicatorColor="#ffffffff" app:indicatorSize="44.0dip" app:trackColor="#ff334046" app:trackThickness="6.0dip" />
+        <TextView android:textSize="15.0sp" android:textColor="#fff1f1f3" android:id="@id/TextView" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+</FrameLayout>

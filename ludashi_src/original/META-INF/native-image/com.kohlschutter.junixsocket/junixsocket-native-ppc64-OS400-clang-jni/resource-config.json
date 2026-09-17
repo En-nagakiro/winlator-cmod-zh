@@ -1,0 +1,9 @@
+{
+  "resources":{
+  "includes":[
+    {
+      "pattern":"^lib/ppc64-OS400-clang/jni/.*"
+    }
+  ]},
+  "bundles":[]
+}

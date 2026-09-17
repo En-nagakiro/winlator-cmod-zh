@@ -1,0 +1,29 @@
+# Binary Archives & Large Assets
+*.apk
+*.tar.zst*
+*.tzst
+*.bak
+*.dex
+*.png
+*.so*
+*.jar
+*.exe
+wineserver*
+*.ttc
+dist/
+build/
+.agents/
+PowerShell*/
+final_fixed_signed/
+final_signed/
+__pycache__/
+
+# Large decompiled smali trees
+apk_dex_smali/
+apk_smali/
+winlator_11_smali/
+
+# OS & Temp
+.DS_Store
+Thumbs.db
+*.log

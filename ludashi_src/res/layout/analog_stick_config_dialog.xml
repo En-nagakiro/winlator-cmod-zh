@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:id="@id/analogStickConfigScrollView" android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:fillViewport="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/LLAnalogStickConfig" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="16.0sp" android:textStyle="bold" android:id="@id/TVBoxLeftStick" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="8.0dip" android:text="@string/left_analog_stick_settings" />
+        <TextView android:id="@id/TVLeftDeadzone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:text="Deadzone: 10%" />
+        <SeekBar android:id="@id/SBLeftDeadzone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:max="100" android:progress="10" />
+        <TextView android:id="@id/TVLeftSensitivity" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16.0dip" android:text="Sensitivity: 100%" />
+        <SeekBar android:id="@id/SBLeftSensitivity" android:layout_width="fill_parent" android:layout_height="wrap_content" android:max="100" android:progress="100" />
+        <CheckBox android:id="@id/CBLeftStickSquareDeadzone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/use_square_deadzone_left" />
+        <View android:background="#ffcccccc" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_marginTop="24.0dip" android:layout_marginBottom="24.0dip" />
+        <TextView android:textSize="16.0sp" android:textStyle="bold" android:id="@id/TVBoxRightStick" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="8.0dip" android:text="@string/right_analog_stick_settings" />
+        <TextView android:id="@id/TVRightDeadzone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:text="Deadzone: 10%" />
+        <SeekBar android:id="@id/SBRightDeadzone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:max="100" android:progress="10" />
+        <TextView android:id="@id/TVRightSensitivity" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16.0dip" android:text="Sensitivity: 100%" />
+        <SeekBar android:id="@id/SBRightSensitivity" android:layout_width="fill_parent" android:layout_height="wrap_content" android:max="100" android:progress="100" />
+        <CheckBox android:id="@id/CBInvertLeftStickX" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24.0dip" android:text="@string/invert_x_axis_left" />
+        <CheckBox android:id="@id/CBInvertLeftStickY" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:text="@string/invert_y_axis_left" />
+        <CheckBox android:id="@id/CBInvertRightStickX" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24.0dip" android:text="@string/invert_x_axis_right" />
+        <CheckBox android:id="@id/CBInvertRightStickY" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:text="@string/invert_y_axis_right" />
+    </LinearLayout>
+</ScrollView>

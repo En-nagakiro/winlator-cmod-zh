@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:background="@drawable/ui_glass_background" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ScrollView android:background="@drawable/ui_glass_background" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:paddingTop="6.0dip" android:paddingBottom="76.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="14.0dip" android:paddingEnd="14.0dip">
+            <TextView android:textSize="10.0sp" android:textStyle="bold" android:textColor="@color/ui_text_muted" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="6.0dip" android:layout_marginBottom="8.0dip" android:text="@string/app_settings_title" android:layout_marginStart="4.0dip" android:letterSpacing="0.1" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@drawable/ui_enhanced_card" android:layout_width="fill_parent" android:layout_height="72.0dip" android:layout_marginBottom="4.0dip" android:paddingStart="13.0dip" android:paddingEnd="14.0dip">
+                <FrameLayout android:background="@drawable/ui_icon_button_bg" android:layout_width="42.0dip" android:layout_height="42.0dip">
+                    <ImageView android:layout_gravity="center" android:layout_width="22.0dip" android:layout_height="22.0dip" android:src="@drawable/ui_nav_settings" />
+                </FrameLayout>
+                <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="13.0dip">
+                    <TextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="@color/ui_text_primary" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/runtime_and_interface" />
+                    <TextView android:textSize="11.0sp" android:textColor="@color/ui_text_muted" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="3.0dip" android:text="@string/presets_paths_input" />
+                </LinearLayout>
+            </LinearLayout>
+            <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <LinearLayout style="@style/FieldSet">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/box64_preset" />
+                    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <Spinner android:id="@id/SBox64Preset" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:spinnerMode="dialog" style="@style/ComboBox" />
+                    </LinearLayout>
+                    <LinearLayout android:gravity="start" android:orientation="horizontal" android:paddingTop="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <ImageButton android:id="@id/BTAddBox64Preset" android:src="@drawable/icon_add" android:tooltipText="Add" style="@style/ListMenuButton" />
+                        <ImageButton android:id="@id/BTEditBox64Preset" android:src="@drawable/icon_edit" android:tooltipText="Edit" style="@style/ListMenuButton" />
+                        <ImageButton android:id="@id/BTDuplicateBox64Preset" android:src="@drawable/icon_duplicate" android:tooltipText="Duplicate" style="@style/ListMenuButton" />
+                        <ImageButton android:id="@id/BTRemoveBox64Preset" android:layout_marginRight="0.0dip" android:src="@drawable/icon_remove" android:tooltipText="Remove" style="@style/ListMenuButton" />
+                        <ImageButton android:id="@id/BTExportBox64Preset" android:layout_marginRight="0.0dip" android:src="@drawable/icon_export" android:tooltipText="Export" style="@style/ListMenuButton" />
+                        <ImageButton android:id="@id/BTImportBox64Preset" android:layout_marginRight="0.0dip" android:src="@drawable/icon_popup_menu_download" android:tooltipText="Import" style="@style/ListMenuButton" />
+                        <Space android:layout_width="75.0dip" android:layout_height="0.0dip" />
+                    </LinearLayout>
+                </LinearLayout>
+                <TextView android:id="@id/TVBox64" android:text="@string/box64" style="@style/FieldSetLabel" />
+            </FrameLayout>
+            <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <LinearLayout style="@style/FieldSet">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/fexcore_preset" />
+                    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <Spinner android:id="@id/SFEXCorePreset" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:spinnerMode="dialog" style="@style/ComboBox" />
+                    </LinearLayout>
+                    <LinearLayout android:gravity="start" android:orientation="horizontal" android:paddingTop="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <ImageButton android:id="@id/BTAddFEXCorePreset" android:src="@drawable/icon_add" android:tooltipText="Add" style="@style/ListMenuButton" />
+                        <ImageButton android:id="@id/BTEditFEXCorePreset" android:src="@drawable/icon_edit" android:tooltipText="Edit" style="@style/ListMenuButton" />
+                        <ImageButton android:id="@id/BTDuplicateFEXCorePreset" android:src="@drawable/icon_duplicate" android:tooltipText="Duplicate" style="@style/ListMenuButton" />
+                        <ImageButton android:id="@id/BTRemoveFEXCorePreset" android:layout_marginRight="0.0dip" android:src="@drawable/icon_remove" android:tooltipText="Remove" style="@style/ListMenuButton" />
+                        <ImageButton android:id="@id/BTExportFEXCorePreset" android:layout_marginRight="0.0dip" android:src="@drawable/icon_export" android:tooltipText="Export" style="@style/ListMenuButton" />
+                        <ImageButton android:id="@id/BTImportFEXCorePreset" android:layout_marginRight="0.0dip" android:src="@drawable/icon_popup_menu_download" android:tooltipText="Import" style="@style/ListMenuButton" />
+                        <Space android:layout_width="75.0dip" android:layout_height="0.0dip" />
+                    </LinearLayout>
+                </LinearLayout>
+                <TextView android:id="@id/TVFEXCore" android:text="@string/fexcore_config" style="@style/FieldSetLabel" />
+            </FrameLayout>
+            <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <LinearLayout style="@style/FieldSet">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/midi_sound_font" />
+                    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <Spinner android:id="@id/SMIDISoundFont" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" style="@style/ComboBox" />
+                        <ImageButton android:id="@id/BTInstallSF" android:src="@drawable/icon_add" style="@style/ListMenuButton" />
+                        <ImageButton android:id="@id/BTRemoveSF" android:layout_marginRight="0.0dip" android:src="@drawable/icon_remove" style="@style/ListMenuButton" />
+                    </LinearLayout>
+                </LinearLayout>
+                <TextView android:id="@id/TVSound" android:text="@string/sound" style="@style/FieldSetLabel" />
+            </FrameLayout>
+            <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <LinearLayout style="@style/FieldSet">
+                    <CheckBox android:id="@id/CBDarkMode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/enable_dark_mode" />
+                </LinearLayout>
+                <TextView android:id="@id/TVTheme" android:text="@string/theme" style="@style/FieldSetLabel" />
+            </FrameLayout>
+            <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <LinearLayout style="@style/FieldSet">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/winlator_path" />
+                    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <TextView android:id="@id/TVWinlatorPath" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+                        <Button android:id="@id/BTChooseWinlatorPath" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/choose_path" style="@style/ButtonNeutral" />
+                    </LinearLayout>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/shortcut_export_path" />
+                    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <TextView android:id="@id/TVShortcutExportPath" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+                        <Button android:id="@id/BTChooseShortcutExportPath" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/choose_path" style="@style/ButtonNeutral" />
+                    </LinearLayout>
+                </LinearLayout>
+                <TextView android:id="@id/TVShortcutSettings" android:text="@string/path_settings" style="@style/FieldSetLabel" />
+            </FrameLayout>
+            <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <LinearLayout style="@style/FieldSet">
+                    <CheckBox android:id="@id/CBEnableBigPictureMode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/enable_big_picture_on_launch" />
+                    <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <LinearLayout style="@style/FieldSet">
+                            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                                <CheckBox android:id="@id/CBEnableCustomApiKey" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/set_steamgrid_api_key" />
+                                <ImageView android:id="@id/BTHelpApiKey" android:src="@drawable/icon_help" android:contentDescription="@string/help_steamgrid" style="@style/HelpButton" />
+                            </LinearLayout>
+                            <EditText android:id="@id/ETCustomApiKey" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:hint="@string/enter_api_key_here" />
+                        </LinearLayout>
+                        <TextView android:id="@id/TVCustomApiKey" android:text="@string/steamgrid_api_key" style="@style/FieldSetLabel" />
+                    </FrameLayout>
+                </LinearLayout>
+                <TextView android:id="@id/TVBigPictureMode" android:text="@string/big_picture_mode" style="@style/FieldSetLabel" />
+            </FrameLayout>
+            <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <LinearLayout style="@style/FieldSet">
+                    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip">
+                        <TextView android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/cursor_speed" android:layout_weight="1.0" />
+                        <TextView android:id="@id/TVCursorSpeed" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                    </LinearLayout>
+                    <SeekBar android:id="@id/SBCursorSpeed" android:layout_width="fill_parent" android:layout_height="wrap_content" android:max="200" android:min="10" />
+                    <CheckBox android:id="@id/CBUseDRI3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:text="@string/use_dri3_extension" />
+                    <CheckBox android:id="@id/CBUseXR" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:text="@string/use_xr" />
+                    <CheckBox android:id="@id/CBCursorLock" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:text="@string/capture_external_pointer" />
+                    <CheckBox android:id="@id/CBXinputToggle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:text="@string/disable_xinput_summary" />
+                </LinearLayout>
+                <TextView android:id="@id/TVXServer" android:text="@string/xserver" style="@style/FieldSetLabel" />
+            </FrameLayout>
+            <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <LinearLayout style="@style/FieldSet">
+                    <CheckBox android:id="@id/CBEnableWineDebug" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/enable_wine_debug" />
+                    <HorizontalScrollView android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <LinearLayout android:orientation="horizontal" android:id="@id/LLWineDebugChannels" android:padding="4.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                    </HorizontalScrollView>
+                    <View style="@style/FieldSeparator" />
+                    <CheckBox android:id="@id/CBEnableBox64Logs" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:text="@string/enable_box64_logs" />
+                </LinearLayout>
+                <TextView android:id="@id/TVLogs" android:text="@string/logs" style="@style/FieldSetLabel" />
+            </FrameLayout>
+            <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <LinearLayout style="@style/FieldSet">
+                    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <CheckBox android:layout_gravity="center" android:id="@id/CBEnableFileProvider" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/enable_file_provider" />
+                        <ImageView android:layout_gravity="center" android:id="@id/BTHelpFileProvider" style="@style/HelpButton" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <CheckBox android:layout_gravity="center|left" android:id="@id/CBOpenWithAndroidBrowser" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/open_with_android_browser" />
+                        <CheckBox android:layout_gravity="center|left" android:id="@id/CBShareAndroidClipboard" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/share_android_clipboard" />
+                        <CheckBox android:layout_gravity="center|left" android:id="@id/CBPauseResumeWine" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pause_resume_wine" />
+                        <CheckBox android:layout_gravity="center|left" android:id="@id/CBHighRefreshRate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/high_refresh_rate" />
+                        <CheckBox android:layout_gravity="center|left" android:id="@id/CBRemoveLoadingBarWhenBootingGames" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/remove_loading_bar_when_booting_games" />
+                        <View style="@style/FieldSeparator" />
+                        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/downloadable_contents_url" />
+                        <EditText android:layout_gravity="center|left" android:id="@id/ETDownloadableContentsURL" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+                <TextView android:id="@id/TVExperimental" android:text="@string/experimental" style="@style/FieldSetLabel" />
+            </FrameLayout>
+            <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <LinearLayout style="@style/FieldSet">
+                    <Button android:layout_gravity="center_horizontal" android:id="@id/BTReInstallImagefs" android:layout_width="240.0dip" android:layout_height="wrap_content" android:text="@string/reinstall_imagefs" style="@style/ButtonPositive" />
+                </LinearLayout>
+                <TextView android:id="@id/TVImageFs" android:text="@string/imagefs" style="@style/FieldSetLabel" />
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton android:layout_gravity="bottom|center|right" android:id="@id/BTConfirm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="18.0dip" android:src="@drawable/icon_confirm" android:tint="@color/ui_text_primary" app:backgroundTint="@color/ui_surface_alt" />
+</FrameLayout>
