@@ -27,3 +27,10 @@ winlator_11_smali/
 .DS_Store
 Thumbs.db
 *.log
+/*.desktop
+/*.xml
+logcat*.txt
+signed_*/
+startmenu_*/
+test_*/
+

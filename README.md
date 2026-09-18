@@ -18,11 +18,21 @@
    - 攻克 Windows 窗口关闭（点击 `[X]`、Alt+F4）或右键刷新桌面时触发宿主退出的漏洞。
    - 虚拟桌面宿主 `explorer.exe` 常驻不灭，杜绝“前台黑屏、后台音频继续播放”的失步死锁。
 
-3. **开箱即用 (Out-of-the-Box Ready)**
+3. **主界面快捷方式秒开与命令注入修复 (Shortcut Direct Launch Fix)**
+   - 攻克主界面直接添加游戏后点击启动“一直黑屏、光标可动”的严重缺陷。
+   - 修复 `getWineStartCommand()` 启动代理前缀缺失漏洞，补全 `winhandler.exe` 守护进程调用；
+   - 重构文件管理器桌面条目生成算法，将 Linux 宿主绝对路径智能转换为 Wine 容器标准 DOS 盘符映射路径（`D:\...`）。
+
+4. **游戏库快捷方式路径反斜杠与闪退修复 (Windows DOS Path & Crash Fix)**
+   - 修复 `StringUtils.unescape()` 错误剥离 Windows 路径反斜杠（导致 `D:\...` 损坏）的缺陷；
+   - 在 `FileUtils.getDirname()` 增加负索引边界安全检查，杜绝 `StringIndexOutOfBoundsException`，彻底解决直接从主界面游戏库快捷方式启动各类 Windows 游戏时秒退闪退的问题。
+
+5. **开箱即用 (Out-of-the-Box Ready)**
    - 修复补丁均已内建并预编译至 Proton 9.0 ARM64EC 容器包与模板中，新建容器自动生效，无需任何 ADB 命令行修补。
 
-4. **精致全中文界面 (zh-CN Localization)**
+6. **精致全中文界面 (zh-CN Localization)**
    - 容器配置、驱动切换、快捷方式管理、预设模式及侧边栏设置实现 100% 精准中文化。
+
 
 ---
 
@@ -53,11 +63,21 @@ Wine 原生 `desktop_wnd_proc` 在收到 `WM_SYSCOMMAND` (`SC_CLOSE`) 时会调�
 - 拦截 `SC_CLOSE` 与 `WM_CLOSE`，直接返回 0；
 - 消息循环强制屏蔽 `WM_QUIT`，退出分支兜底跳转回主循环，保障 X11 桌面窗口永驻。
 
+### 3. Shortcut Proxy & DOS Path Mapping
+Wine 的虚拟桌面宿主 `explorer.exe` 通过 `CreateProcessW` 启动跟随程序。若启动指令缺乏可执行实体（如误写为 `/dir ...`），Windows API 会因无法定位可执行文件返回 `ERROR_FILE_NOT_FOUND` (2) 导致启动静默失败。本项目补齐了 `winhandler.exe` 调用链，并在 `FileManagerFragment` 中引入 `toDesktopWindowsPath` 驱动器映射转换，确保工作目录与目标路径符合 Wine DOS 规范。
+
+### 4. Windows Path Backslash & Shortcut Crash Fix
+- **反斜杠清洗缺陷**：快捷方式在解析 `Exec=... wine ...` 时，`StringUtils.unescape()` 原始正则表达式破坏了 Windows 路径中的所有反斜杠（如 `D:\Games\game.exe` 被错误洗成 `D:Gamesgame.exe`）。
+- **负索引边界溢出**：在提取执行目录时，`FileUtils.getDirname()` 因无任何斜杠返回 `-1`，随后调用 `path.substring(0, -1)` 触发致命的 `StringIndexOutOfBoundsException` 导致主程序崩溃。
+- **修复**：重写 `StringUtils.unescape()` 精确保留 Windows 路径反斜杠与转义规则，并在 `FileUtils.getDirname()` 中增加负索引边界安全防护，确保直接从主界面快捷方式秒开各类 Windows 游戏。
+
 ---
 
 ## 📜 校验信息 (Binary Checksum)
 
 - **文件**: `Winlator_CMOD_Ludashi_zh_CN_Final_Fixed.apk`
-- **大小**: `540.75 MB (567,015,715 字节)`
-- **MD5**: `79d5662d5154b32b58b915d581a454fe`
-- **SHA256**: `3b226debb212a47639f11c7652fb02ac975266436a8f3d443ec9a10fcfa66b06`
+- **大小**: `540.73 MB (566,999,024 字节)`
+- **MD5**: `fdae5e5785058ae86c3fa712039dbb17`
+- **SHA256**: `0469d20f336b8ec7ac45d542a278a254bc59dc0e9e1398d200658bf9521a8ed0`
+
+
