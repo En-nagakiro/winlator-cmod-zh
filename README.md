@@ -1,83 +1,71 @@
-# Winlator CMOD (Android 16 & 16KB Compatible / 完整中文定制版)
+# Winlator CMOD Bionic 4.1 (魅族 Flyme / Android 16 兼容与中文版)
 
-[![Android 16 Supported](https://img.shields.io/badge/Android-16%20Ready-green.svg)](https://developer.android.com/about/versions/16)
-[![16KB Page Compatible](https://img.shields.io/badge/Page%20Size-16KB%20Compatible-blue.svg)](https://developer.android.com/guide/practices/page-sizes)
-[![License](https://img.shields.io/badge/License-GPL%20v3-orange.svg)](LICENSE)
+基于 Winlator CMOD Bionic 4.1（包名 `com.ludashi.benchmark`）进行反编译修补与中文化打包的维护版本。重点解决 **魅族 Flyme 12.6 / Android 16** 上容器无法启动、仅单一 Proton 版本可用、物理/虚拟手柄无响应，以及快捷方式路径闪退与中文化问题。
 
-基于 Winlator CMOD 进行深度系统级强化与全中文化的定制版本。完美解决 **Android 16 预览版/正式版（如魅族 Flyme 12.6 等系统）+ 骁龙 8 Gen 2 / 8 Gen 3** 等新硬件上的闪退崩溃，并彻底攻克 Wine 虚拟桌面“关闭窗口/刷新后黑屏有声音”的历史级疑难问题。
+> **历史说明勘误**：早期 `v11.2-cmod-a16-fix` / `fix2` 的文档曾将魅族启动失败误归因于“Android 16 16KB 页表 / Bionic FORTIFY `open64`/`fcntl64`”，且误称已内置“5 处 `explorer.exe` 免疫补丁”。经后续真机 ADB 实测与二进制核验，测试机型魅族 21 Note 实际为标准 4KB 页（`PAGE_SIZE=4096`），`wineserver` 与 `explorer.exe` 均未包含上述补丁；真正的底层阻断原因是 **Flyme 12.6 对应用 UID 孤儿进程（`PPID=1`）的即时击杀机制**。当前版本文档与旧版 Release 说明已全部按实测证据修正。
 
 ---
 
-## 🌟 核心特性 (Key Features)
+## 核心改动 (What's Changed)
 
-1. **Android 16 & 16KB 页表原生兼容**
-   - 彻底解决由于 Android 16 Bionic FORTIFY 严格参数校验（`open64`/`fcntl64`）导致的 `SIGABRT` (Exit Code 134) 启动崩溃。
-   - 原生支持 16KB 内存页对齐与 48 位虚拟地址空间 `mmap32` 内存分配隔离。
+1. **Flyme 12.6 / Android 16 反孤儿进程根治（`libsubreaper.so`）**
+   - 内置 368 字节纯静态 PIE（`ET_DYN`、64KB 对齐）AArch64 启动器 `lib/arm64-v8a/libsubreaper.so`，通过 `prctl(PR_SET_CHILD_SUBREAPER, 1)` 接管整个 Wine 进程子树，并通过 `wait4(-1)` 循环回收已退出子进程（支持 `-EINTR` 重试，兼容暂停/恢复）。
+   - 移除早期版本中写死 `proton-9.0-arm64ec/lib/wine/aarch64-unix/ntdll.so` 路径与偏移的原地二进制魔改，以及 `wineserver -f -p` 预启动变通方案。
+   - **实测效果**：无需修改 `ntdll.so`，`wineserver`、`services.exe`、`winedevice.exe`、`plugplay.exe`、`rpcss.exe`、`explorer.exe` 全部挂载在 `libsubreaper.so` 下持续存活、零僵尸进程；解除仅 `proton-9.0-arm64ec` 可进容器的限制，`proton-9.0-x86_64` 亦可正常进入容器。
 
-2. **虚拟桌面防自杀免疫修补 (Immunity Patch)**
-   - 攻克 Windows 窗口关闭（点击 `[X]`、Alt+F4）或右键刷新桌面时触发宿主退出的漏洞。
-   - 虚拟桌面宿主 `explorer.exe` 常驻不灭，杜绝“前台黑屏、后台音频继续播放”的失步死锁。
+2. **手柄服务与输入链路修复（虚拟手柄 / XInput）**
+   - 解决了 `wineboot.exe` 退出后 `services.exe` / `winedevice.exe`（承载 `winebus.sys`、`winehid.sys`、`winexinput.sys`、`libSDL2`、`libfakeinput.so`）因托孤给 PID 1 被 Flyme 秒杀，导致虚拟手柄与实体手柄均无响应的问题。
+   - 修正 `WineUtils.changeServicesStatus()`，将正常/精简启动模式下的 `winebus:4`、`winehid:4` 改为 `winebus:3`、`winehid:3`，并升级 `startupSelection_v4` 让旧容器启动时自动修复注册表。
 
-3. **主界面快捷方式秒开与命令注入修复 (Shortcut Direct Launch Fix)**
-   - 攻克主界面直接添加游戏后点击启动“一直黑屏、光标可动”的严重缺陷。
-   - 修复 `getWineStartCommand()` 启动代理前缀缺失漏洞，补全 `winhandler.exe` 守护进程调用；
-   - 重构文件管理器桌面条目生成算法，将 Linux 宿主绝对路径智能转换为 Wine 容器标准 DOS 盘符映射路径（`D:\...`）。
+3. **快捷方式启动与注册表修复**
+   - 补全 `XServerDisplayActivity.getWineStartCommand()` 中的 `winhandler.exe` 启动前缀，修正 `FileManagerFragment` 快捷方式目标路径为 Wine DOS 盘符格式（`D:\...`）。
+   - 修正 `StringUtils.unescape()` 误删 Windows 路径反斜杠的问题，并在 `FileUtils.getDirname()` 增加负索引防护，避免快捷方式启动崩溃。
+   - 修正 `Window.disableAllDescendants()`，避免窗口切换/关闭后子窗口保持禁用状态。
+   - 修正早期汉化误将注册表键名 `"MouseWarpOverride"` 翻成 `"鼠标抓取覆盖"` 的问题。
 
-4. **游戏库快捷方式路径反斜杠与闪退修复 (Windows DOS Path & Crash Fix)**
-   - 修复 `StringUtils.unescape()` 错误剥离 Windows 路径反斜杠（导致 `D:\...` 损坏）的缺陷；
-   - 在 `FileUtils.getDirname()` 增加负索引边界安全检查，杜绝 `StringIndexOutOfBoundsException`，彻底解决直接从主界面游戏库快捷方式启动各类 Windows 游戏时秒退闪退的问题。
-
-5. **开箱即用 (Out-of-the-Box Ready)**
-   - 修复补丁均已内建并预编译至 Proton 9.0 ARM64EC 容器包与模板中，新建容器自动生效，无需任何 ADB 命令行修补。
-
-6. **精致全中文界面 (zh-CN Localization)**
-   - 容器配置、驱动切换、快捷方式管理、预设模式及侧边栏设置实现 100% 精准中文化。
-
+4. **中文界面、字体与 Wine 开始菜单本地化**
+   - 覆盖 Android 主界面资源（`values-zh-rCN` / `values-zh`）及主要 Jetpack Compose 页面文案。
+   - 在容器模板内置文泉驿微米黑字体（`wqy-microhei.ttc` 及 `SimSun`/`MSYH` 映射）与 `FontLink` 注册表配置。
+   - 同步中文 `assets/wine_startmenu.json`，并对内置 `proton-9.0-arm64ec` 与容器模板中的 `explorer.exe`、`shell32.dll` 实施纯 PE `.rsrc` `RT_STRING` 显示字符串汉化（`开始`、`控制面板`、`运行(&R)`、`退出桌面(&X)`、`桌面`、`我的电脑`、`Wine 资源管理器` 等），严格保留所有文件系统路径资源 ID（`Programs`、`Start Menu`、`Documents`、`StartUp` 等）。
 
 ---
 
-## 🚀 快速上手 (Getting Started)
+## 技术原理简述
 
-### 1. 安装与权限
-1. 前往 [Releases](../../releases) 下载最新的 `Winlator_CMOD_Ludashi_zh_CN_Final_Fixed.apk`。
-2. 安装并启动，授予常规存储与管理权限。
+### 为什么魅族 Flyme 12.6 进不去容器且手柄失灵？
+在魅族 21 Note（Flyme 12.6 / Android 16）上进行的控制变量测试表明：
+- `adb shell`（`uid=2000`）下的双 fork 孤儿进程（`PPID=1`）正常存活；
+- 普通应用 UID（如 `u0_a346`）下的直接子进程正常存活，但只要中间父进程退出、子进程托孤给 `init`（`PPID=1`），会在 `< 100ms` 内被系统静默终止。
 
-### 2. 推荐容器参数 (以骁龙 8 Gen 2 为例)
-- **Wine 版本**：`Proton 9.0 (ARM64EC)`
-- **显卡驱动 (GPU Driver)**：`Turnip 26.2.0 (Adreno 7xx)`
-- **DX 包装器**：`DXVK 2.3.1 (ARM64EC GPLAsync)`
-- **渲染器**：`Vulkan (Native)`
-- **音频驱动**：`PulseAudio`
-- **CPU 亲和性**：勾选核心 `4, 5, 6, 7`
+早期版本仅通过原地 patch `proton-9.0-arm64ec` 的 `ntdll.so` 跳过创建时的二次 `fork()`，使 `services.exe` 暂时成为 `wineboot.exe` 的直接子进程；但启动约 0.2 秒后 `wineboot.exe` 正常退出，`services.exe` 与其子树 `winedevice.exe`（负责读取 `dev/input/event0` 并提供 HID/XInput 驱动）仍会变成孤儿被瞬间击杀，同时导致所有未打补丁的其他 Wine/Proton 版本无法启动。
+
+引入 `libsubreaper.so` 设置 `PR_SET_CHILD_SUBREAPER` 后，所有失去直接父进程的 Wine 子进程均由内核重挂到存活的 `libsubreaper.so` 下（不再进入 PID 1），从根源上同时解决了多版本启动、手柄服务存活与僵尸进程回收三个问题。相关构造与补丁逻辑见 [patch_subreaper_and_wine_zh.py](patch_subreaper_and_wine_zh.py)。
 
 ---
 
-## 🔧 技术原理解析 (Under the Hood)
+## 安装与使用说明
 
-### 1. FORTIFY open64/fcntl64 Bionic Crash
-Android 16 强化了 libc 运行期安全检查。若 `open64()` 携带 `O_CREAT` 但未传入合法的 `mode_t`，或者 `fcntl64()` 传参异常，Android 16 libc 会直接调用 `abort()`。本项目在二进制层对 `ntdll.so` 及 `wineserver` 进行了指令修正与符号包裹，杜绝崩溃触发。
+1. 前往 [Releases](../../releases) 下载最新的 `Winlator_CMOD_Ludashi_zh_CN_a16_fix3.apk`。
+2. 本包沿用 `uber-apk-signer` 内置调试签名，与 `fix` / `fix2` 签名一致，可直接覆盖安装并保留现有容器与数据。
+3. 如之前手动开启过“设置 → Wine 调试”，确认正常后建议关闭以减少日志开销。
 
-### 2. Desktop Lifecycle & Black Screen Fix
-Wine 原生 `desktop_wnd_proc` 在收到 `WM_SYSCOMMAND` (`SC_CLOSE`) 时会调用 `ExitWindowsEx(0, ~0)`，收到 `WM_CLOSE` 时调用 `PostQuitMessage(0)`，导致 `manage_desktop` 退出消息循环并执行 `ExitProcess(0)`。
-本项目对 ARM64 PE `explorer.exe` 实施了 5 处指令级二进制免疫补丁：
-- 拦截 `SC_CLOSE` 与 `WM_CLOSE`，直接返回 0；
-- 消息循环强制屏蔽 `WM_QUIT`，退出分支兜底跳转回主循环，保障 X11 桌面窗口永驻。
-
-### 3. Shortcut Proxy & DOS Path Mapping
-Wine 的虚拟桌面宿主 `explorer.exe` 通过 `CreateProcessW` 启动跟随程序。若启动指令缺乏可执行实体（如误写为 `/dir ...`），Windows API 会因无法定位可执行文件返回 `ERROR_FILE_NOT_FOUND` (2) 导致启动静默失败。本项目补齐了 `winhandler.exe` 调用链，并在 `FileManagerFragment` 中引入 `toDesktopWindowsPath` 驱动器映射转换，确保工作目录与目标路径符合 Wine DOS 规范。
-
-### 4. Windows Path Backslash & Shortcut Crash Fix
-- **反斜杠清洗缺陷**：快捷方式在解析 `Exec=... wine ...` 时，`StringUtils.unescape()` 原始正则表达式破坏了 Windows 路径中的所有反斜杠（如 `D:\Games\game.exe` 被错误洗成 `D:Gamesgame.exe`）。
-- **负索引边界溢出**：在提取执行目录时，`FileUtils.getDirname()` 因无任何斜杠返回 `-1`，随后调用 `path.substring(0, -1)` 触发致命的 `StringIndexOutOfBoundsException` 导致主程序崩溃。
-- **修复**：重写 `StringUtils.unescape()` 精确保留 Windows 路径反斜杠与转义规则，并在 `FileUtils.getDirname()` 中增加负索引边界安全防护，确保直接从主界面快捷方式秒开各类 Windows 游戏。
+### 已实测范围与已知限制
+- **已真机验证**：魅族 21 Note（骁龙 8 Gen 2 / Flyme 12.6 / Android 16 / 4KB 页）：
+  - 原版未修改 `ntdll.so` 正常进入 `proton-9.0-arm64ec` 与 `proton-9.0-x86_64` 容器；
+  - `services.exe` / `winedevice.exe` / `plugplay.exe` / `rpcss.exe` 持续存活且零僵尸；
+  - 虚拟手柄及 `event0` → `libfakeinput.so` → `SDL2` → `winebus`/`winexinput` 通路工作正常；
+  - Wine 开始菜单中文项显示正常。
+- **已知边界**：
+  - 实体蓝牙手柄与虚拟手柄共享上述底层链路，打包验证阶段未接实体蓝牙手柄单独复测，建议自行连机确认；
+  - 从外部单独导入的第三方 Wine/Proton 包可自动受益于 `libsubreaper.so` 反孤儿保护，但其自带的 `explorer.exe`/`shell32.dll` 仍保持原版英文。
 
 ---
 
-## 📜 校验信息 (Binary Checksum)
+## 最新安装包校验信息 (`v11.2-cmod-a16-fix3`)
 
-- **文件**: `Winlator_CMOD_Ludashi_zh_CN_Final_Fixed.apk`
-- **大小**: `540.73 MB (566,999,024 字节)`
-- **MD5**: `fdae5e5785058ae86c3fa712039dbb17`
-- **SHA256**: `0469d20f336b8ec7ac45d542a278a254bc59dc0e9e1398d200658bf9521a8ed0`
-
-
+| 项目 | 值 |
+|---|---|
+| 文件名 | `Winlator_CMOD_Ludashi_zh_CN_a16_fix3.apk` |
+| 大小 | `558.01 MB` (`585,120,110` 字节) |
+| MD5 | `3d649f1b5de9a75bb2ec8a7282b90dae` |
+| SHA-256 | `ad305be49513a7eef13ff92e2cd51c55e4721eb503d7eb4639cc89de68b96e7c` |

@@ -1,55 +1,56 @@
-[{
-    "name" : "Programs",
-    "children" : [
-        {
-            "name" : "Internet Explorer",
-            "path" : "C:/windows/system32/iexplore.exe"
-        },
-        {
-            "name" : "Notepad",
-            "path" : "C:/windows/notepad.exe"
-        },
-        {
-            "name" : "Wordpad",
-            "path" : "C:/windows/system32/write.exe"
-        }
+[
+    {
+        "name" : "程序",
+        "children" : [
+            {
+                "name" : "Internet Explorer 浏览器",
+                "path" : "C:/windows/system32/iexplore.exe"
+            },
+            {
+                "name" : "记事本",
+                "path" : "C:/windows/notepad.exe"
+            },
+            {
+                "name" : "写字板",
+                "path" : "C:/windows/system32/write.exe"
+            }
         ]
     },
     {
-        "name" : "System Tools",
+        "name" : "系统工具",
         "children" : [
             {
-                "name" : "Computer",
+                "name" : "我的电脑",
                 "path" : "C:/windows/wfm.exe"
             },
             {
-                "name" : "Task Manager",
+                "name" : "任务管理器",
                 "path" : "C:/windows/system32/taskmgr.exe"
             },
             {
-                "name" : "Registry Editor",
+                "name" : "注册表编辑器",
                 "path" : "C:/windows/regedit.exe"
             },
             {
-                "name" : "Command Prompt",
+                "name" : "命令提示符 (CMD)",
                 "path" : "C:/windows/system32/cmd.exe"
             },
             {
-                "name" : "Wine Mono Installer",
+                "name" : "Wine Mono 安装程序",
                 "path" : "C:/windows/system32/control.exe",
                 "cmdArgs" : "appwiz.cpl install_mono",
                 "iconLocation" : "shell32.dll",
                 "iconIndex" : -25
             },
             {
-                "name" : "Wine Gecko Installer",
+                "name" : "Wine Gecko 安装程序",
                 "path" : "C:/windows/system32/control.exe",
                 "cmdArgs" : "appwiz.cpl install_gecko",
                 "iconLocation" : "shell32.dll",
                 "iconIndex" : -25
             },
             {
-                "name" : "Wine Configuration",
+                "name" : "Wine 配置 (Winecfg)",
                 "path" : "C:/windows/system32/winecfg.exe"
             }
         ]
